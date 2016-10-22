@@ -1,3 +1,33 @@
+
+
+
+## start a new repository
+git init
+
+## shows status of git location
+git status
+
+## add stuff to be sent away
+git add .
+
+## tell git who you are 
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
+## commit you stuff
+git commit -m 'some text about what you are changin'
+
+## add to the internet
+git push
+
+## get from the internet
+git pull
+
+## get from internet but do not merge
+git fetch
+
+##################
+
 git init
 
 // initialize a repository in the current folder
