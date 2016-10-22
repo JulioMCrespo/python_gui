@@ -1,0 +1,45 @@
+## run python commands on the terminal
+python
+## however we dont have permission to access the system
+## exit out of python
+ctrl-d
+## opens python shell as super user
+sudo python
+## import the library to control the gpio pins
+import RPi.GPIO as GPIO
+## how to tell python to use physical pin number scheme 
+GPIO.setmode(GPIO.BOARD)
+## to use the other numbering scheme
+GPIO.setmode(GPIO.BCM)
+## tell the pi if the pin will be input or output
+GPIO.setup(11,GPIO.OUT)
+## here we set up pin 11 to be the output
+## turn on LED on pin 11
+GPIO.output(11,True)
+## turn off LED on pin 11
+GPIO.output(11,False)
+## when you want to close your python
+GPIO.cleanup()
+## releases the pins so you can use them again later
+
+
+## write python program
+sudo nano blink.py
+## blink twice code
+import time
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BOARD)
+blink_num = input("how many times do you want to blink? ")
+red=11
+GPIO.setup(red,GPIO.OUT)
+
+for i in range(0,blink_num):
+	GPIO.output(red,True)
+	time.sleep(1)
+	GPIO.output(red,False)
+	time.sleep(1)
+GPIO.cleanup()
+
+#run your program
+sudo python blink.py
+

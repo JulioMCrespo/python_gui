@@ -1,0 +1,34 @@
+## code to make a PWM
+
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(11,GPIO.OUT)
+GPIO.output(True)
+GPIO.output(False)
+## now we make a pwm
+my_pwm = GPIO.PWM(11,100)
+# this is saying to make pin 11 a pwm at 100 hz
+my_pwm.start(50)
+# this give is a 50% duty cycle
+my_pwm.ChangeDutyCycle(10)
+# this changes the duty cycle
+my_pwm.Change.Frequency(50)
+# change the frequency to 50 hz
+my_pwm.stop()
+#stops pwm
+GPIO.cleanup()
+#clean for the next use
+
+## simple PWM program
+
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BOARD)
+red=11
+GPIO.setup(red,GPIO.OUT)
+my_pwm=GPIO.PWM(red,100)
+my_pwm.start(0)
+while(1):
+	x=input("How bright? (1-100): ")
+	my_pwm.ChangeDutyCycle(x)
+my_pwm.stop()
+GPIO.cleanup()

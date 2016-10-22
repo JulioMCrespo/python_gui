@@ -1,0 +1,104 @@
+git init
+
+// initialize a repository in the current folder
+
+git status
+
+// shows the status of the git location
+
+// in order to commit a file or change
+
+git add readme.txt
+
+// now we check it
+
+git status
+
+// the readme.txt will not be green
+
+git commit
+
+// this opens a VIM like screen to enter a commit message
+
+1)
+press i
+2)
+enter commit message
+3)
+escape
+4)
+:wq
+
+git status
+
+// the commit will be made
+
+// the faster way
+
+git commit -m 'some change text'
+
+git log
+
+// will tell you commit history
+
+git add .
+// will stage (for commit) all the files
+git add*.html
+// will stage only those files that end with .html
+
+
+// to exclude files
+touch .gitignore
+// open the editor and put
+*.log
+// git add .
+git commit -m 'adding ignore file'
+
+//branching
+git branch juliosbranch
+//created a branch called juliosbranch
+git checkout juliosbranch
+// went to the branch
+// everything will be the same in both sections
+
+// to make a change
+touch index.css
+// stage and commit changes
+git add . 
+git commit -m 'new updates'
+
+
+// to go back to the main branch
+git checkout master
+// master is always the name of the master branch
+// the master will not have the changes of the branch
+
+// now we want to combine them into master
+git status
+// to see which branch we are in
+git checkout master
+// to move to the master branch
+git merge juliosbranch
+
+
+////////////remote repositories
+
+git remote
+//shows current remote 
+// you have to be in a master or something
+
+// how to get new repositories
+git clone https://github.com/somecopied repository
+// this pulls all the repository
+cd somecopied repository
+// to change to this section
+git remote -v
+// shows the url of the data
+git fetch origin
+// this will grab the newest data but you will have to merge
+git pull origin
+// this will grab and merge the newest data
+git commit -a -m 'readme changes'
+// now we commit back to the remote
+git push origin master
+// tells git to send the changes to the foreign master

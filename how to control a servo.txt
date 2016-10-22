@@ -1,0 +1,41 @@
+###period = 1/frequency = 1/50 = .02 = 20 milliseconds
+
+## enter the python shell
+sudo python
+
+## RPI libraries
+import RPi.PGIO as GPIO
+## use the physical pin configurations
+GPIO.setmode(GPIO.BOARD)
+## make pin 11 into an output
+GPIO.setup(11,GPIO.OUT)
+#set the frequency
+pwm=GPIO.PWM(11,5o)
+#start it and give it a duty cycle
+pwm.start(5)
+#all the way right
+pwm.ChangeDutyCycle(2)
+#all the way left 
+pwm.ChangeDutyCycle(12)
+#stop the use of pwm
+pwm.stop()
+#shut things down
+GPIO.cleanup()
+
+##ctrl-d to get out of python shell
+
+#2% for full left and 12% for full right
+# 0 degrees is a duty cycle of 2%
+# 180 degrees is a duty cycle of 12%
+#calculate the slope of the line
+### m = (y2-y1)/(x2-x1) = (12-2)/(180-0) = 10/180 = 1/18
+## y-2=(1/18)(x-0)
+
+## this give us
+
+y = (1/18)*x +2
+
+## degree position is x
+## y is the output duty cycle
+
+DutyCycle = (1/20) * desiredAngle + 2
